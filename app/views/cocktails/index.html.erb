@@ -1,14 +1,11 @@
-
-
-
 <div class="banner">
-  <h1>Cocktailz-R-Us</h1>
-  <p>Get trollied but for more money</p>
+  <h1>Cocktail Creator</h1>
+  <p>Invent new cocktail combinations and save them here. Simply upload the name and image of a classic cocktail. On the cocktail page, create new drink combinations using a list of ingredients</p>
   <%= link_to 'New cocktail', new_cocktail_path, class: 'btn btn-flat'%>
-</div>
 </div>
 
 <div class="container" style="padding: 20px 0;">
+    <h2>Click the cocktails below!</h2>
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail) do %>
