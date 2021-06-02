@@ -1,6 +1,10 @@
+require 'snowplow-tracker'
+
 class CocktailsController < ApplicationController
   def index
     @cocktails = Cocktail.all
+    emitter = SnowplowTracker::Emitter.new("http://localhost:9090/micro/all")
+    tracker = SnowplowTracker::Tracker.new(emitter)
   end
 
   def show

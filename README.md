@@ -24,3 +24,8 @@ Things you may want to cover:
 * ...
 
  docker run --mount type=bind,source=$(pwd)/cocktail-app-snowplow,destination=/config -p 9090:9090 snowplow/snowplow-micro:1.1.2 --collector-config /config/micro.conf --iglu /config/iglu.json
+
+bundle install
+yarn install
+rails db:create
+rails db:migrate
