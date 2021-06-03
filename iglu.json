@@ -12,6 +12,16 @@
               "uri": "http://iglucentral.com"
             }
           }
+        },
+        {
+          "name": "My Iglu repo",
+          "priority": 1,
+          "vendorPrefixes": [ "com.amazonaws" ],
+          "connection": {
+            "http": {
+              "uri": "https://cocktail-creator-bucket.s3.eu-west-2.amazonaws.com"
+            }
+          }
         }
       ]
     }

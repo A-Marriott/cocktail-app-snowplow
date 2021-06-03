@@ -3,7 +3,6 @@
 <div class="container" style="padding: 20px 0;">
   <%= simple_form_for @cocktail, html: { class: :cocktail_upload } do |f| %>
     <%= f.input :name %>
-    <%= f.input :image, as: :file %>
     <%= f.submit "Submit cocktail", class: "btn btn-flat" %>
   <% end %>
 </div>
