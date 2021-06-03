@@ -1,7 +1,7 @@
 <%= link_to 'home', root_path, class: 'btn btn-flat m-3' %>
 
 <div class="container" style="padding: 20px 0;">
-  <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+  <%= simple_form_for [ @cocktail, @dose ], html: { class: :combination_upload } do |f| %>
     <%= f.input :description %>
     <%= f.association :ingredient %>
     <%= f.submit "Create combination", class: "btn btn-flat" %>

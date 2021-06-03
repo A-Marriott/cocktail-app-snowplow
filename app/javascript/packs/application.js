@@ -9,16 +9,31 @@ require("@rails/activestorage").start()
 require("channels")
 import 'bootstrap';
 
-import { newTracker, trackPageView } from '@snowplow/browser-tracker';
+import { newTracker, trackPageView, trackStructEvent } from '@snowplow/browser-tracker';
+import { FormTrackingPlugin } from '@snowplow/browser-plugin-form-tracking';
 
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
+// import { LinkClickTrackingPlugin, enableLinkClickTracking } from '@snowplow/browser-plugin-link-click-tracking';
+
+import formTracker from '../plugins/init_form_tracking.js'
 
 document.addEventListener('turbolinks:load', () => {
-  newTracker('sp1', 'http://localhost:9090', { appId: 'my-app-id' });
-  trackPageView();
+  newTracker('sp1', 'http://localhost:9090', {
+    appId: 'my-app-id',
+    plugins: [ FormTrackingPlugin() ]
+  });
+
+  formTracker();
+
+  // enableLinkClickTracking();
+  // trackPageView();
+  // trackStructEvent({
+  //   category: 'category',
+  //   action: 'action',
+  //   label: 'label',
+  //   property: 'property',
+  //   value: 0.0
+  // });
 });
+
+
+// submit
