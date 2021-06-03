@@ -23,10 +23,7 @@ const formTracker = () => {
 
   const options = {
     forms: {
-      allowlist: ['cocktail_upload']
-    },
-    fields: {
-      allowlist: []
+      allowlist: ['cocktail_upload', 'combination_upload']
     }
   };
 
@@ -42,7 +39,24 @@ const formTracker = () => {
     });
   }
 
+  const combinationForm = document.getElementById('new_dose');
+  if (combinationForm) {
+    combinationForm.addEventListener('input', (event) => {
+      if (deleteEvents.includes(event.inputType)) {
+        trackStructEvent({
+          category: 'combinations',
+          action: 'delete form input'
+        });
+      }
+    });
+  }
+
   enableFormTracking({options});
+
+  // derived_tstamp - compare against derived_tstamp of trackPageView to find out how long it took to complete the form
+  //
+  // Maybe use activity tracking here too? - to check how long given that they stayed on the page
+  // Check elements to see what type of name (explicit?) and if used alcoholic vs non alcohlic ingredient
 };
 
 

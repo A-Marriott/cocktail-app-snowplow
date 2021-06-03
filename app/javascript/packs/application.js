@@ -18,7 +18,7 @@ import formTracker from '../plugins/init_form_tracking.js'
 
 document.addEventListener('turbolinks:load', () => {
   newTracker('sp1', 'http://localhost:9090', {
-    appId: 'my-app-id',
+    appId: 'cocktail creator',
     plugins: [ FormTrackingPlugin() ]
   });
 
