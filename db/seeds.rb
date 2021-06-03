@@ -9,12 +9,13 @@
 require 'open-uri'
 require 'json'
 
-puts "deleting DB"
+puts 'deleting data'
+
 Dose.destroy_all
 Ingredient.destroy_all
 Cocktail.destroy_all
 
-puts "creating seeds"
+puts 'creating seed'
 
 ingredient_list = [
   'Chocolate liqueur',
