@@ -34,7 +34,6 @@ ingredient_list.each do |ingredient|
   Ingredient.create(name: ingredient)
 end
 
-Cocktail.create(name: 'Virgin Strawberry Daiquiri')
-Cocktail.create(name: 'Mojito')
+Cocktail.create(name: 'Virgin Strawberry Daiquiri', random_image: 'https://bit.ly/2TGQLdF')
 
 puts "done"

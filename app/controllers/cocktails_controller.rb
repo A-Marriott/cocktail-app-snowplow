@@ -12,7 +12,15 @@ class CocktailsController < ApplicationController
   end
 
   def create
+    @images = [
+      'https://bit.ly/3g0Wd2w',
+      'https://bit.ly/2RlSdRW',
+      'https://bit.ly/3ifOv7A',
+      'https://bit.ly/2SYxswc',
+      'https://bit.ly/3fJAJs2'
+    ]
     @cocktail = Cocktail.new(cocktail_params)
+    @cocktail.random_image = @images.sample
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
