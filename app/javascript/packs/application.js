@@ -9,7 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 import 'bootstrap';
 
-import { newTracker, trackPageView, trackStructEvent } from '@snowplow/browser-tracker';
+import { newTracker, trackPageView } from '@snowplow/browser-tracker';
 import { FormTrackingPlugin } from '@snowplow/browser-plugin-form-tracking';
 
 // import { LinkClickTrackingPlugin, enableLinkClickTracking } from '@snowplow/browser-plugin-link-click-tracking';
@@ -22,17 +22,8 @@ document.addEventListener('turbolinks:load', () => {
     plugins: [ FormTrackingPlugin() ]
   });
 
-  formTracker();
-
   // enableLinkClickTracking();
   // trackPageView();
-  // trackStructEvent({
-  //   category: 'category',
-  //   action: 'action',
-  //   label: 'label',
-  //   property: 'property',
-  //   value: 0.0
-  // });
 });
 
 

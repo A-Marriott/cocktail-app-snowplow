@@ -53,7 +53,7 @@ const formTracker = () => {
 
   enableFormTracking({options});
 
-  // derived_tstamp - compare against derived_tstamp of trackPageView to find out how long it took to complete the form
+  // derived_tstamp - compare against derived_tstamp of trackPageView to find out how long it took to complete the form + what time of day
   //
   // Maybe use activity tracking here too? - to check how long given that they stayed on the page
   // Check elements to see what type of name (explicit?) and if used alcoholic vs non alcohlic ingredient

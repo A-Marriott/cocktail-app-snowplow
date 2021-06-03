@@ -16,13 +16,24 @@ Cocktail.destroy_all
 
 puts "creating seeds"
 
-15.times do
-  url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
-  drink_info = JSON.parse(open(url).read)["drinks"][0]
-  array = [drink_info['strIngredient1'], drink_info['strIngredient2']].sample
-  unless Ingredient.find_by name: "#{array}"
-    Ingredient.create!(name: array)
-  end
+ingredient_list = [
+  'Chocolate liqueur',
+  'Baileys Irish cream',
+  'Bourbon',
+  'White rum',
+  'Gin',
+  'Banana',
+  'Sugar',
+  'Honey',
+  'Coke',
+  'Seltzer'
+]
+
+ingredient_list.each do |ingredient|
+  Ingredient.create(name: ingredient)
 end
+
+Cocktail.create(name: 'Virgin Strawberry Daiquiri')
+Cocktail.create(name: 'Mojito')
 
 puts "done"
