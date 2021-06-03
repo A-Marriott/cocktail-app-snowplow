@@ -1,7 +1,11 @@
 <div class="banner">
   <h1>Cocktail Creator</h1>
   <p>Invent new cocktail combinations and save them here. Simply upload the name of a classic cocktail. On the cocktail page, create new drink combinations using a list of ingredients</p>
-  <%= link_to 'New cocktail', new_cocktail_path, class: 'btn btn-flat'%>
+  <div class="d-flex justify-content-center">
+    <div class="btn-misclick-zone">
+      <%= link_to 'New cocktail', new_cocktail_path, class: 'btn btn-flat'%>
+    </div>
+  </div>
 </div>
 
 <div class="container" style="padding: 20px 0;">
