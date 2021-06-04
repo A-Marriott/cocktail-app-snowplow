@@ -16,7 +16,7 @@ document.addEventListener('turbolinks:load', () => {
     plugins: [ FormTrackingPlugin() ]
   });
 
-  // trackPageView();
+  trackPageView();
   formTracker();
-  // misclickTracker();
+  misclickTracker();
 });
