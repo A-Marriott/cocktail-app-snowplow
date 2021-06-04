@@ -3,7 +3,7 @@
   "description": "Click event",
   "self": {
 		"vendor": "com.amazonaws",
-		"name": "clickschema",
+		"name": "misclickschema",
 		"format": "jsonschema",
 		"version": "1-0-0"
 	},
@@ -11,11 +11,14 @@
 	"type": "object",
 
 	"properties": {
-		"myIntProperty": {
-			"type": "number"
-		}
+		"misclick?": {
+			"type": "boolean"
+		},
+    "timestamp": {
+      "type": "number"
+    }
 	},
 
-	"required": ["myIntProperty"],
+	"required": ["misclick?", "timestamp"],
 	"additionalProperties": false
 }

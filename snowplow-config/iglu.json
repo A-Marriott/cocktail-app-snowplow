@@ -19,7 +19,7 @@
           "vendorPrefixes": [ "com.amazonaws" ],
           "connection": {
             "http": {
-              "uri": "https://cocktail-creator-bucket.s3.eu-west-2.amazonaws.com"
+              "uri": "https://cocktail-creator-bucket.s3.eu-west-2.amazonaws.com/schemas"
             }
           }
         }

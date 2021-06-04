@@ -5,22 +5,18 @@ const misclickTracker = () => {
   if (misclickAreas) {
     misclickAreas.forEach((misclickArea) => {
       misclickArea.addEventListener('click', (event) => {
-        // console.log(event.srcElement.localName)
-        // timestamp
-        console.log(event)
+        trackSelfDescribingEvent({
+          event: {
+            schema: 'iglu:com.amazonaws/misclickschema/jsonschema/1-0-0',
+            data: {
+              "misclick?": event.srcElement.localName === "div",
+              "timestamp": parseFloat((event.timeStamp / 1000).toFixed(3))
+            }
+          }
+        });
       });
     });
   }
 };
-
-trackSelfDescribingEvent({
-  event: {
-    schema: 'iglu:com.amazonaws/clickschema/jsonschema/1-0-0',
-    data: {
-        myIntProperty: 1
-    }
-  }
-});
-
 
 export default misclickTracker;
