@@ -19,46 +19,31 @@ const formTracker = () => {
     "deleteContentForward"
   ]
 
-  // To avoid tracking unnecessary amounts of data, we only track form submission by using an empty array for the tracked field list
-
   const options = {
     forms: {
       allowlist: ['cocktail_upload', 'combination_upload']
     }
   };
 
-  const cocktailForm = document.getElementById('new_cocktail');
-  if (cocktailForm) {
-    cocktailForm.addEventListener('input', (event) => {
-      if (deleteEvents.includes(event.inputType)) {
-        trackStructEvent({
-          category: 'cocktails',
-          action: 'delete form input'
-        });
-      }
-    });
-  }
+  const trackedForm = function(formName, categoryName) {
+    if(formName) {
+      formName.addEventListener('input', (event) => {
+        if (deleteEvents.includes(event.inputType)) {
+          trackStructEvent({
+            category: categoryName,
+            action: 'delete form input'
+          });
+        }
+      });
+    }
+  };
 
+  const cocktailForm = document.getElementById('new_cocktail');
   const combinationForm = document.getElementById('new_dose');
-  if (combinationForm) {
-    combinationForm.addEventListener('input', (event) => {
-      if (deleteEvents.includes(event.inputType)) {
-        trackStructEvent({
-          category: 'combinations',
-          action: 'delete form input'
-        });
-      }
-    });
-  }
+  trackedForm(cocktailForm, 'cocktails');
+  trackedForm(combinationForm, 'combinations');
 
   enableFormTracking({options});
-
-  // derived_tstamp - compare against derived_tstamp of trackPageView to find out how long it took to complete the form + what time of day
-  //
-  // Maybe use activity tracking here too? - to check how long given that they stayed on the page
-  // Check elements to see what type of name (explicit?) and if used alcoholic vs non alcohlic ingredient only for combination
 };
-
-
 
 export default formTracker;
